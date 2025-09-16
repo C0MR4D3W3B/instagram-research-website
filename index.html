@@ -26,6 +26,13 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
         .plan.featured { border-color: #4CAF50; transform: scale(1.05); }
+        
+        .account-range {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
         .plan h3 { font-size: 1.8rem; margin-bottom: 20px; }
         .price { font-size: 3rem; font-weight: bold; margin-bottom: 20px; }
         .features { list-style: none; margin-bottom: 30px; }
@@ -63,7 +70,7 @@
                 <h3>Free</h3>
                 <div class="price">$0<span style="font-size: 1rem;">/month</span></div>
                 <ul class="features">
-                    <li>✅ 1 project</li>
+                    <li>✅ 1 account</li>
                     <li>✅ Basic viral detection (5X algorithm)</li>
                     <li>✅ Real-time viral reel identification</li>
                     <li>✅ Basic VPS scoring</li>
@@ -74,11 +81,11 @@
                 <a href="#" class="btn secondary" onclick="selectPlan('Free')">Get Started Free</a>
             </div>
 
-            <div class="plan featured">
+            <div class="plan">
                 <h3>Individual</h3>
-                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
+                <div class="price">$49<span style="font-size: 1rem;">/month</span></div>
                 <ul class="features">
-                    <li>✅ Up to 3 projects</li>
+                    <li>✅ 1 account</li>
                     <li>✅ Full viral detection & VPS scoring</li>
                     <li>✅ Unlimited CSV exports</li>
                     <li>✅ Data storage & history</li>
@@ -87,28 +94,61 @@
                     <li>✅ Community access</li>
                     <li>✅ Priority support</li>
                 </ul>
-                <a href="#" class="btn" onclick="selectPlan('Individual')">Choose Individual</a>
+                <a href="#" class="btn secondary" onclick="selectPlan('Individual')">Choose Individual</a>
+            </div>
+
+            <div class="plan featured">
+                <h3>Professional</h3>
+                <div class="price">$39<span style="font-size: 1rem;">/account/month</span></div>
+                <div class="account-range">2-49 accounts</div>
+                <ul class="features">
+                    <li>✅ 2-49 accounts</li>
+                    <li>✅ Everything in Individual</li>
+                    <li>✅ Multi-account management</li>
+                    <li>✅ Advanced analytics</li>
+                    <li>✅ Priority support</li>
+                    <li>✅ 20% savings vs Individual</li>
+                </ul>
+                <a href="#" class="btn" onclick="selectPlan('Professional')">Choose Professional</a>
             </div>
 
             <div class="plan">
                 <h3>Agency</h3>
-                <div class="price">$97<span style="font-size: 1rem;">/month</span></div>
+                <div class="price">$29<span style="font-size: 1rem;">/account/month</span></div>
+                <div class="account-range">50-299 accounts</div>
                 <ul class="features">
-                    <li>✅ Up to 10 projects</li>
-                    <li>✅ Everything in Individual</li>
+                    <li>✅ 50-299 accounts</li>
+                    <li>✅ Everything in Professional</li>
                     <li>✅ Team collaboration (3 users)</li>
                     <li>✅ White-label reports</li>
                     <li>✅ Advanced analytics</li>
                     <li>✅ Priority support</li>
+                    <li>✅ 41% savings vs Individual</li>
                 </ul>
                 <a href="#" class="btn secondary" onclick="selectPlan('Agency')">Choose Agency</a>
+            </div>
+
+            <div class="plan">
+                <h3>Enterprise</h3>
+                <div class="price">$19<span style="font-size: 1rem;">/account/month</span></div>
+                <div class="account-range">300+ accounts</div>
+                <ul class="features">
+                    <li>✅ 300+ accounts</li>
+                    <li>✅ Everything in Agency</li>
+                    <li>✅ Unlimited team members</li>
+                    <li>✅ API access</li>
+                    <li>✅ Custom integrations</li>
+                    <li>✅ Dedicated account manager</li>
+                    <li>✅ 61% savings vs Individual</li>
+                </ul>
+                <a href="#" class="btn secondary" onclick="selectPlan('Enterprise')">Contact Sales</a>
             </div>
         </div>
 
         <div class="cta">
             <h2>Ready to Scale Your Research?</h2>
-            <p>Join 500+ agencies already saving 15+ hours weekly</p>
-            <a href="#" class="btn" onclick="startFreeTrial()">Start Free Trial</a>
+            <p>Start with our free Chrome extension and upgrade as you grow</p>
+            <a href="#" class="btn" onclick="startFreeTrial()">Get Started Free</a>
         </div>
 
         <div class="footer">
@@ -121,6 +161,9 @@
             if (plan === 'Free') {
                 // Redirect to Chrome Web Store for free extension
                 window.location.href = 'https://chrome.google.com/webstore';
+            } else if (plan === 'Enterprise') {
+                // Redirect to contact sales
+                window.location.href = 'https://app.betterhumanbeans.com/contact-sales';
             } else {
                 // Redirect to payment page for paid plans
                 const paymentUrl = `https://app.betterhumanbeans.com/payment?plan=${plan}`;
