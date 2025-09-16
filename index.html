@@ -33,6 +33,89 @@
             margin-bottom: 1rem;
             font-weight: 500;
         }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat .number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        
+        .stat .label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .how-it-works {
+            margin: 4rem 0;
+            text-align: center;
+        }
+        
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 1;
+            max-width: 250px;
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .popular-badge {
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
         .plan h3 { font-size: 1.8rem; margin-bottom: 20px; }
         .price { font-size: 3rem; font-weight: bold; margin-bottom: 20px; }
         .features { list-style: none; margin-bottom: 30px; }
@@ -63,6 +146,20 @@
         <div class="header">
             <h1>🔥 Instagram Viral Research</h1>
             <p>Automate viral content discovery for agencies and creators</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number">5X</span>
+                    <span class="label">Viral Detection</span>
+                </div>
+                <div class="stat">
+                    <span class="number">4-5</span>
+                    <span class="label">Hours Saved</span>
+                </div>
+                <div class="stat">
+                    <span class="number">1000+</span>
+                    <span class="label">Reels Analyzed</span>
+                </div>
+            </div>
         </div>
 
         <div class="pricing">
@@ -98,6 +195,7 @@
             </div>
 
             <div class="plan featured">
+                <div class="popular-badge">Most Popular</div>
                 <h3>Professional</h3>
                 <div class="price">$39<span style="font-size: 1rem;">/account/month</span></div>
                 <div class="account-range">2-49 accounts</div>
@@ -145,6 +243,27 @@
             </div>
         </div>
 
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install Extension</h3>
+                    <p>Add our Chrome extension to your browser in seconds</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Browse Instagram</h3>
+                    <p>Visit Instagram reels as you normally would</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Viral Insights</h3>
+                    <p>See viral potential scores and analytics automatically</p>
+                </div>
+            </div>
+        </div>
+
         <div class="cta">
             <h2>Ready to Scale Your Research?</h2>
             <p>Start with our free Chrome extension and upgrade as you grow</p>
@@ -152,7 +271,8 @@
         </div>
 
         <div class="footer">
-            <p>© 2024 Better Human Beans. All rights reserved.</p>
+            <p>&copy; 2024 Better Human Beans. All rights reserved.</p>
+            <p>Questions? Contact us at <a href="mailto:support@betterhumanbeans.com">support@betterhumanbeans.com</a></p>
         </div>
     </div>
 
