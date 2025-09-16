@@ -60,35 +60,48 @@
 
         <div class="pricing">
             <div class="plan">
-                <h3>Individual</h3>
-                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
+                <h3>Free</h3>
+                <div class="price">$0<span style="font-size: 1rem;">/month</span></div>
                 <ul class="features">
-                    <li>✅ Chrome Extension Access</li>
-                    <li>✅ Up to 50 research sessions/month</li>
-                    <li>✅ Creator whitelist/blacklist</li>
-                    <li>✅ Basic analytics & insights</li>
-                    <li>✅ CSV export functionality</li>
-                    <li>✅ Email support</li>
-                    <li>✅ 30-day research history</li>
+                    <li>✅ 1 project</li>
+                    <li>✅ Basic viral detection (5X algorithm)</li>
+                    <li>✅ Real-time viral reel identification</li>
+                    <li>✅ Basic VPS scoring</li>
+                    <li>❌ No CSV export</li>
+                    <li>❌ No data storage</li>
+                    <li>❌ No community access</li>
                 </ul>
-                <a href="#" class="btn secondary" onclick="selectPlan('Individual')">Choose Individual</a>
+                <a href="#" class="btn secondary" onclick="selectPlan('Free')">Get Started Free</a>
             </div>
 
             <div class="plan featured">
-                <h3>Enterprise</h3>
-                <div class="price">$99<span style="font-size: 1rem;">/month</span></div>
+                <h3>Individual</h3>
+                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
                 <ul class="features">
-                    <li>✅ Everything in Individual</li>
-                    <li>✅ Multi-client management</li>
-                    <li>✅ Team collaboration (5 members)</li>
+                    <li>✅ Up to 3 projects</li>
+                    <li>✅ Full viral detection & VPS scoring</li>
+                    <li>✅ Unlimited CSV exports</li>
+                    <li>✅ Data storage & history</li>
+                    <li>✅ Creator whitelist/blacklist</li>
                     <li>✅ Advanced analytics</li>
-                    <li>✅ Priority support (24hr)</li>
-                    <li>✅ Unlimited research sessions</li>
-                    <li>✅ 1-year data retention</li>
-                    <li>✅ White-label reports</li>
-                    <li>✅ API access</li>
+                    <li>✅ Community access</li>
+                    <li>✅ Priority support</li>
                 </ul>
-                <a href="#" class="btn" onclick="selectPlan('Enterprise')">Choose Enterprise</a>
+                <a href="#" class="btn" onclick="selectPlan('Individual')">Choose Individual</a>
+            </div>
+
+            <div class="plan">
+                <h3>Agency</h3>
+                <div class="price">$97<span style="font-size: 1rem;">/month</span></div>
+                <ul class="features">
+                    <li>✅ Up to 10 projects</li>
+                    <li>✅ Everything in Individual</li>
+                    <li>✅ Team collaboration (3 users)</li>
+                    <li>✅ White-label reports</li>
+                    <li>✅ Advanced analytics</li>
+                    <li>✅ Priority support</li>
+                </ul>
+                <a href="#" class="btn secondary" onclick="selectPlan('Agency')">Choose Agency</a>
             </div>
         </div>
 
@@ -105,14 +118,19 @@
 
     <script>
         function selectPlan(plan) {
-            // Redirect to payment page
-            const paymentUrl = `https://app.betterhumanbeans.com/payment?plan=${plan}`;
-            window.location.href = paymentUrl;
+            if (plan === 'Free') {
+                // Redirect to Chrome Web Store for free extension
+                window.location.href = 'https://chrome.google.com/webstore';
+            } else {
+                // Redirect to payment page for paid plans
+                const paymentUrl = `https://app.betterhumanbeans.com/payment?plan=${plan}`;
+                window.location.href = paymentUrl;
+            }
         }
 
         function startFreeTrial() {
-            // Redirect to trial signup
-            window.location.href = 'https://app.betterhumanbeans.com/trial';
+            // Redirect to Chrome Web Store for free extension
+            window.location.href = 'https://chrome.google.com/webstore';
         }
     </script>
 </body>
