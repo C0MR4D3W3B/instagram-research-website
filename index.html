@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Viral Research - Better Human Beans</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { font-size: 3rem; margin-bottom: 20px; }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .plan { 
+            background: rgba(255, 255, 255, 0.1); 
+            border-radius: 20px; 
+            padding: 40px; 
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .plan.featured { border-color: #4CAF50; transform: scale(1.05); }
+        .plan h3 { font-size: 1.8rem; margin-bottom: 20px; }
+        .price { font-size: 3rem; font-weight: bold; margin-bottom: 20px; }
+        .features { list-style: none; margin-bottom: 30px; }
+        .features li { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn { 
+            background: #4CAF50; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 10px; 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn:hover { background: #45a049; transform: translateY(-2px); }
+        .btn.secondary { background: #2196F3; }
+        .btn.secondary:hover { background: #1976D2; }
+        .cta { text-align: center; margin-bottom: 60px; }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta p { font-size: 1.2rem; margin-bottom: 30px; }
+        .footer { text-align: center; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔥 Instagram Viral Research</h1>
+            <p>Automate viral content discovery for agencies and creators</p>
+        </div>
+
+        <div class="pricing">
+            <div class="plan">
+                <h3>Individual</h3>
+                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
+                <ul class="features">
+                    <li>✅ Chrome Extension Access</li>
+                    <li>✅ Up to 50 research sessions/month</li>
+                    <li>✅ Creator whitelist/blacklist</li>
+                    <li>✅ Basic analytics & insights</li>
+                    <li>✅ CSV export functionality</li>
+                    <li>✅ Email support</li>
+                    <li>✅ 30-day research history</li>
+                </ul>
+                <a href="#" class="btn secondary" onclick="selectPlan('Individual')">Choose Individual</a>
+            </div>
+
+            <div class="plan featured">
+                <h3>Enterprise</h3>
+                <div class="price">$99<span style="font-size: 1rem;">/month</span></div>
+                <ul class="features">
+                    <li>✅ Everything in Individual</li>
+                    <li>✅ Multi-client management</li>
+                    <li>✅ Team collaboration (5 members)</li>
+                    <li>✅ Advanced analytics</li>
+                    <li>✅ Priority support (24hr)</li>
+                    <li>✅ Unlimited research sessions</li>
+                    <li>✅ 1-year data retention</li>
+                    <li>✅ White-label reports</li>
+                    <li>✅ API access</li>
+                </ul>
+                <a href="#" class="btn" onclick="selectPlan('Enterprise')">Choose Enterprise</a>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Ready to Scale Your Research?</h2>
+            <p>Join 500+ agencies already saving 15+ hours weekly</p>
+            <a href="#" class="btn" onclick="startFreeTrial()">Start Free Trial</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Better Human Beans. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function selectPlan(plan) {
+            // Redirect to payment page
+            const paymentUrl = `https://app.betterhumanbeans.com/payment?plan=${plan}`;
+            window.location.href = paymentUrl;
+        }
+
+        function startFreeTrial() {
+            // Redirect to trial signup
+            window.location.href = 'https://app.betterhumanbeans.com/trial';
+        }
+    </script>
+</body>
+</html>
