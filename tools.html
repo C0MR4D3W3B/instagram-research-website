@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Portal - Instagram Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            color: #ff6b35;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-details {
+            text-align: right;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .user-plan {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn.secondary:hover {
+            background: #5a6268;
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .welcome-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .welcome-section h2 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .welcome-section p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .tool-card h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .tool-btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .tool-btn:hover {
+            background: #e55a2b;
+        }
+        
+        .tool-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .extension-install {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .extension-install h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .extension-install p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .extension-btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .extension-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .user-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🔥 Instagram Research</h1>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-details">
+                    <div class="user-name" id="userName">Loading...</div>
+                    <div class="user-plan" id="userPlan">Loading...</div>
+                </div>
+                <button class="btn secondary" onclick="handleLogout()">Sign Out</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="welcome-section">
+            <h2>Welcome to Your Tools Portal! 🎉</h2>
+            <p>You're now authenticated and ready to use our Instagram research tools.</p>
+        </div>
+        
+        <div class="extension-install">
+            <h3>🚀 Install the Chrome Extension</h3>
+            <p>Get started with viral content research by installing our Chrome extension</p>
+            <button class="extension-btn" onclick="installExtension()">Install Extension</button>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🔍</div>
+                <h3>Viral Content Research</h3>
+                <p>Automatically detect viral reels using our advanced 5X engagement algorithm and VPS scoring system.</p>
+                <button class="tool-btn" onclick="openResearchTool()">Start Research</button>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h3>Analytics Dashboard</h3>
+                <p>View detailed analytics and insights from your research sessions. Track performance and trends.</p>
+                <button class="tool-btn" disabled>Coming Soon</button>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">💾</div>
+                <h3>Data Export</h3>
+                <p>Export your research data to CSV format for further analysis and reporting.</p>
+                <button class="tool-btn" disabled>Coming Soon</button>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">👥</div>
+                <h3>Community Access</h3>
+                <p>Join our community of content creators and share insights, strategies, and success stories.</p>
+                <button class="tool-btn" disabled>Coming Soon</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUserInfo();
+        });
+        
+        function loadUserInfo() {
+            try {
+                const authData = localStorage.getItem('instagram_research_auth');
+                if (authData) {
+                    const { user, subscriptionTier } = JSON.parse(authData);
+                    
+                    document.getElementById('userName').textContent = user.name || user.email;
+                    document.getElementById('userPlan').textContent = `${subscriptionTier} Plan`;
+                } else {
+                    // Redirect to login if not authenticated
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('Error loading user info:', error);
+                window.location.href = '/login';
+            }
+        }
+        
+        function handleLogout() {
+            localStorage.removeItem('instagram_research_auth');
+            window.location.href = '/login';
+        }
+        
+        function installExtension() {
+            // Redirect to Chrome Web Store
+            window.open('https://chrome.google.com/webstore', '_blank');
+        }
+        
+        function openResearchTool() {
+            // Redirect to Instagram with instructions
+            window.open('https://www.instagram.com', '_blank');
+        }
+    </script>
+</body>
+</html>

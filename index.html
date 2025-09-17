@@ -3,299 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Viral Research - Better Human Beans</title>
+    <title>Instagram Research Tools - Better Human Beans</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { text-align: center; margin-bottom: 60px; }
-        .header h1 { font-size: 3rem; margin-bottom: 20px; }
-        .header p { font-size: 1.2rem; opacity: 0.9; }
-        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .plan { 
-            background: rgba(255, 255, 255, 0.1); 
-            border-radius: 20px; 
-            padding: 40px; 
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        .plan.featured { border-color: #4CAF50; transform: scale(1.05); }
-        
-        .account-range {
-            font-size: 0.9rem;
+            line-height: 1.6;
             color: #333;
-            margin-bottom: 1rem;
-            font-weight: 500;
         }
         
-        .hero-stats {
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
         }
         
-        .stat {
-            text-align: center;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .stat .number {
-            display: block;
-            font-size: 2.5rem;
+        .logo h1 {
+            color: #ff6b35;
+            font-size: 24px;
             font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
             color: #ff6b35;
         }
         
-        .stat .label {
-            font-size: 0.9rem;
-            color: #333;
-            font-weight: 500;
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
         }
         
-        .how-it-works {
-            margin: 4rem 0;
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn.primary {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .btn.primary:hover {
+            background: #e55a2b;
+        }
+        
+        .btn.secondary {
+            background: transparent;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+        }
+        
+        .btn.secondary:hover {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .main-content {
+            margin-top: 70px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
             text-align: center;
         }
         
-        .how-it-works h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .steps {
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            gap: 3rem;
             flex-wrap: wrap;
         }
         
-        .step {
-            flex: 1;
-            max-width: 250px;
+        .hero .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+        
+        .hero .btn.secondary {
+            background: white;
+            color: #667eea;
+            border: none;
+        }
+        
+        .hero .btn.secondary:hover {
+            background: #f8f9fa;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             text-align: center;
         }
         
-        .step-number {
-            width: 60px;
-            height: 60px;
+        .stats h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .cta {
             background: #ff6b35;
             color: white;
-            border-radius: 50%;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1rem;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
-        .step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .step p {
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .popular-badge {
-            background: #ff6b35;
+        .footer-links a {
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .plan h3 { font-size: 1.8rem; margin-bottom: 20px; }
-        .price { font-size: 3rem; font-weight: bold; margin-bottom: 20px; }
-        .features { list-style: none; margin-bottom: 30px; }
-        .features li { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .btn { 
-            background: #4CAF50; 
-            color: white; 
-            padding: 15px 30px; 
-            border: none; 
-            border-radius: 10px; 
-            font-size: 1.1rem; 
-            cursor: pointer; 
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
         }
-        .btn:hover { background: #45a049; transform: translateY(-2px); }
-        .btn.secondary { background: #2196F3; }
-        .btn.secondary:hover { background: #1976D2; }
-        .cta { text-align: center; margin-bottom: 60px; }
-        .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .cta p { font-size: 1.2rem; margin-bottom: 30px; }
-        .footer { text-align: center; opacity: 0.7; }
+        
+        .footer-links a:hover {
+            color: #ff6b35;
+        }
+        
+        .footer p {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+            }
+            
+            .nav {
+                margin-top: 15px;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🔥 Instagram Viral Research</h1>
-            <p>Automate viral content discovery for agencies and creators</p>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="number">5X</span>
-                    <span class="label">Viral Detection</span>
-                </div>
-                <div class="stat">
-                    <span class="number">4-5</span>
-                    <span class="label">Hours Saved</span>
-                </div>
-                <div class="stat">
-                    <span class="number">Real-time</span>
-                    <span class="label">Viral Scoring</span>
-                </div>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🔥 Instagram Research</h1>
             </div>
-        </div>
-
-        <div class="pricing">
-            <div class="plan">
-                <h3>Free</h3>
-                <div class="price">$0<span style="font-size: 1rem;">/month</span></div>
-                <ul class="features">
-                    <li>✅ 1 account</li>
-                    <li>✅ Basic viral detection (5X algorithm)</li>
-                    <li>✅ Real-time viral reel identification</li>
-                    <li>✅ Basic VPS scoring</li>
-                    <li>❌ No CSV export</li>
-                    <li>❌ No data storage</li>
-                    <li>❌ No community access</li>
-                </ul>
-                <a href="#" class="btn secondary" onclick="selectPlan('Free')">Get Started Free</a>
+            
+            <nav class="nav">
+                <a href="#features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="/login" class="btn secondary">Sign In</a>
+                <a href="/signup" class="btn primary">Get Started</a>
             </div>
-
-            <div class="plan">
-                <h3>Individual</h3>
-                <div class="price">$49<span style="font-size: 1rem;">/month</span></div>
-                <ul class="features">
-                    <li>✅ 1 account</li>
-                    <li>✅ Full viral detection & VPS scoring</li>
-                    <li>✅ Unlimited CSV exports</li>
-                    <li>✅ Data storage & history</li>
-                    <li>✅ Creator whitelist/blacklist</li>
-                    <li>✅ Advanced analytics</li>
-                    <li>✅ Community access</li>
-                    <li>✅ Priority support</li>
-                </ul>
-                <a href="#" class="btn secondary" onclick="selectPlan('Individual')">Choose Individual</a>
-            </div>
-
-            <div class="plan featured">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Professional</h3>
-                <div class="price">$39<span style="font-size: 1rem;">/account/month</span></div>
-                <div class="account-range">2-49 accounts</div>
-                <ul class="features">
-                    <li>✅ 2-49 accounts</li>
-                    <li>✅ Everything in Individual</li>
-                    <li>✅ Multi-account management</li>
-                    <li>✅ Advanced analytics</li>
-                    <li>✅ Priority support</li>
-                    <li>✅ 20% savings vs Individual</li>
-                </ul>
-                <a href="#" class="btn" onclick="selectPlan('Professional')">Choose Professional</a>
-            </div>
-
-            <div class="plan">
-                <h3>Agency</h3>
-                <div class="price">$29<span style="font-size: 1rem;">/account/month</span></div>
-                <div class="account-range">50-299 accounts</div>
-                <ul class="features">
-                    <li>✅ 50-299 accounts</li>
-                    <li>✅ Everything in Professional</li>
-                    <li>✅ Team collaboration (3 users)</li>
-                    <li>✅ White-label reports</li>
-                    <li>✅ Advanced analytics</li>
-                    <li>✅ Priority support</li>
-                    <li>✅ 41% savings vs Individual</li>
-                </ul>
-                <a href="#" class="btn secondary" onclick="selectPlan('Agency')">Choose Agency</a>
-            </div>
-
-            <div class="plan">
-                <h3>Enterprise</h3>
-                <div class="price">$19<span style="font-size: 1rem;">/account/month</span></div>
-                <div class="account-range">300+ accounts</div>
-                <ul class="features">
-                    <li>✅ 300+ accounts</li>
-                    <li>✅ Everything in Agency</li>
-                    <li>✅ Unlimited team members</li>
-                    <li>✅ API access</li>
-                    <li>✅ Custom integrations</li>
-                    <li>✅ Dedicated account manager</li>
-                    <li>✅ 61% savings vs Individual</li>
-                </ul>
-                <a href="#" class="btn secondary" onclick="selectPlan('Enterprise')">Contact Sales</a>
-            </div>
-        </div>
-
-        <div class="how-it-works">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Install Extension</h3>
-                    <p>Add our Chrome extension to your browser in seconds</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Browse Instagram</h3>
-                    <p>Visit Instagram reels as you normally would</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Get Viral Insights</h3>
-                    <p>See viral potential scores and analytics automatically</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cta">
-            <h2>Ready to Scale Your Research?</h2>
-            <p>Start with our free Chrome extension and upgrade as you grow</p>
-            <a href="#" class="btn" onclick="startFreeTrial()">Get Started Free</a>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2024 Better Human Beans. All rights reserved.</p>
-            <p>Questions? Contact us at <a href="mailto:support@betterhumanbeans.com">support@betterhumanbeans.com</a></p>
         </div>
     </div>
-
-    <script>
-        function selectPlan(plan) {
-            if (plan === 'Free') {
-                // Redirect to Chrome Web Store for free extension
-                window.location.href = 'https://chrome.google.com/webstore';
-            } else if (plan === 'Enterprise') {
-                // Redirect to contact sales
-                window.location.href = 'https://app.betterhumanbeans.com/contact-sales';
-            } else {
-                // Redirect to payment page for paid plans
-                const paymentUrl = `https://app.betterhumanbeans.com/payment?plan=${plan}`;
-                window.location.href = paymentUrl;
-            }
-        }
-
-        function startFreeTrial() {
-            // Redirect to Chrome Web Store for free extension
-            window.location.href = 'https://chrome.google.com/webstore';
-        }
-    </script>
+    
+    <div class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Transform Instagram Content Creation</h1>
+                <p>Stop guessing what works. Use data-driven viral content research to create engaging reels that actually perform.</p>
+                <div class="hero-buttons">
+                    <a href="/signup" class="btn primary">Start Free Trial</a>
+                    <a href="#features" class="btn secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features" id="features">
+            <div class="features-content">
+                <h2>Why Choose Our Research Tools?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>5X Viral Detection</h3>
+                        <p>Our proprietary algorithm identifies reels with 5X engagement potential, saving you hours of manual research.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Real-time VPS Scoring</h3>
+                        <p>Get instant Viral Potential Scores based on likes, comments, saves, and shares relative to follower count.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Save 4-5 Hours Daily</h3>
+                        <p>Automate the tedious process of sifting through hundreds of reels to find the ones worth studying.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Creator Filtering</h3>
+                        <p>Focus on specific creators or niches to find content patterns that work for your audience.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>Data Export</h3>
+                        <p>Export your research data to CSV for further analysis and reporting to clients or team members.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Community Access</h3>
+                        <p>Join our community of content creators sharing strategies, insights, and success stories.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats">
+            <div class="stats-content">
+                <h2>Trusted by Content Creators</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-number">5X</div>
+                        <div class="stat-label">Viral Detection Algorithm</div>
+                    </div>
+                    
+                    <div class="stat">
+                        <div class="stat-number">4-5</div>
+                        <div class="stat-label">Hours Saved Daily</div>
+                    </div>
+                    
+                    <div class="stat">
+                        <div class="stat-number">Real-time</div>
+                        <div class="stat-label">Viral Scoring</div>
+                    </div>
+                    
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Data-Driven Results</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Content Strategy?</h2>
+                <p>Join thousands of content creators who've already discovered the power of data-driven viral content research.</p>
+                <a href="/signup" class="btn secondary">Get Started Free</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/pricing">Pricing</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="/login">Sign In</a>
+            </div>
+            <p>&copy; 2024 Better Human Beans. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
