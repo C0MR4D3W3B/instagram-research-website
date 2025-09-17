@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
+    },
+    {
+      "source": "/signup",
+      "destination": "/signup.html"
+    },
+    {
+      "source": "/login", 
+      "destination": "/login.html"
+    },
+    {
+      "source": "/tools",
+      "destination": "/tools.html"
+    }
+  ]
+}
